@@ -1,377 +1,1407 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Débeloppeur Full Stack">
-    <meta name="author" content="Carly BIVIHOU">
+    <meta name="description" content="Développeur Full Stack spécialisé en Django et Java - Ange Carly BIVIHOU LOEMBA">
+    <meta name="author" content="Ange Carly BIVIHOU">
+    <meta name="keywords" content="développeur web, Django, Java, Spring Boot, développeur full stack, Dakar">
 
-    <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
-	<meta property="og:site_name" content="" /> <!-- website name -->
-	<meta property="og:site" content="" /> <!-- website link -->
-	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
-	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
-	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-	<meta name="twitter:card" content="summary_large_image"> <!-- to have large image post format in Twitter -->
+    <!-- OG Meta Tags -->
+    <meta property="og:site_name" content="Portfolio Ange Carly BIVIHOU" />
+    <meta property="og:title" content="Ange Carly BIVIHOU - Développeur Full Stack" />
+    <meta property="og:description" content="Développeur web passionné spécialisé en backend Django et Java" />
+    <meta property="og:type" content="website" />
 
     <!-- Webpage Title -->
-    <title>Ange Carly BIVIHOU LOEMBA</title>
+    <title>Ange Carly BIVIHOU LOEMBA - Développeur Full Stack</title>
     
     <!-- Styles -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@600&display=swap" rel="stylesheet">
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/fontawesome-all.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
-	
-	<!-- Favicon  -->
-    <link rel="icon" href="">
-</head>
-<body data-spy="scroll" data-target=".fixed-top">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <div class="container">
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #1d4ed8;
+            --secondary-color: #06b6d4;
+            --accent-color: #f59e0b;
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --light-text: #f8fafc;
+            --gray-text: #64748b;
+            --success-color: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--light-text);
+            background: var(--dark-bg);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-link {
+            color: var(--light-text) !important;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .social-icons a {
+            color: var(--gray-text);
+            font-size: 1.2rem;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%233b82f6" fill-opacity="0.05" points="0,0 1000,300 1000,1000 0,700"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray-text);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-custom {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            border: none;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: var(--dark-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray-text);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: var(--dark-card);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        .about-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .experience-item {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .experience-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-card) 100%);
+        }
+
+        .skill-item {
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: var(--dark-card);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            border-color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Projects Section - Nouveau style */
+        .projects {
+            padding: 100px 0;
+            background: var(--dark-bg);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--dark-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-image::before {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .project-image i {
+            font-size: 3rem;
+            color: white;
+            z-index: 2;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-image i {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--light-text);
+            line-height: 1.4;
+        }
+
+        .project-description {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.2rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-tag {
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: auto;
+        }
+
+        .project-link {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .project-link-primary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .project-link-primary:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-link-secondary {
+            background: transparent;
+            color: var(--gray-text);
+            border: 1px solid rgba(100, 116, 139, 0.3);
+        }
+
+        .project-link-secondary:hover {
+            color: var(--light-text);
+            border-color: var(--primary-color);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Effet spécial pour les projets principaux */
+        .project-card.featured {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .project-card.featured .project-image {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
+        }
+
+        /* Animation pour les cartes */
+        @keyframes projectFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .project-card:nth-child(even) {
+            animation: projectFloat 6s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        .project-card:nth-child(odd) {
+            animation: projectFloat 6s ease-in-out infinite;
+            animation-delay: 3s;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-card) 0%, var(--dark-bg) 100%);
+        }
+
+        .contact-form {
+            background: var(--dark-card);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .form-control {
+            background: var(--dark-bg);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+            color: var(--light-text);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-control:focus {
+            background: var(--dark-bg);
+            border-color: var(--primary-color);
+            color: var(--light-text);
+            box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+        }
+
+        .form-control::placeholder {
+            color: var(--gray-text);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info h6 {
+            color: var(--light-text);
+            margin: 1rem 0 0.5rem 0;
+        }
+
+        .contact-info p {
+            color: var(--gray-text);
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            padding: 3rem 0;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Floating elements */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
             
-            <!-- Image Logo -->
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
 
-            <!-- Text Logo - Use this if you don't have a graphic logo -->
-            <a class="navbar-brand logo-text page-scroll" href="index.html"> Carly BIVIHOU</a> 
+            .hero-image {
+                width: 250px;
+                height: 250px;
+                font-size: 4rem;
+            }
 
-            <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
-                <span class="navbar-toggler-icon"></span>
+            .btn-custom {
+                display: block;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-links {
+                flex-direction: column;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Carly BIVIHOU</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars" style="color: var(--light-text);"></i>
             </button>
-
-            <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav ml-auto">
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#header">Accueil <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#home">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#about">A propos</a>
+                        <a class="nav-link" href="#about">À propos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#projects">Projets</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Drop</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item page-scroll" href="project.html">Project 1 Details</a>
-                            <a class="dropdown-item page-scroll" href="project.html">Project 2 Details</a>
-                            <a class="dropdown-item page-scroll" href="project.html">Project 3 Details</a>
-                            <a class="dropdown-item page-scroll" href="project.html">Project 4 Details</a>
-                            <a class="dropdown-item page-scroll" href="project.html">Project 5 Details</a>
-                            <div class="dropdown-divider"></div>
-                            
-                        </div>
+                        <a class="nav-link" href="#skills">Compétences</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link page-scroll" href="#contact">Contact</a>
+                        <a class="nav-link" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
-                <span class="nav-item social-icons">
-                    <span class="fa-stack">
-                        <a href="https://www.facebook.com/carly.bivihou.9?mibextid=kFxxJD">
-                            <i class="fas fa-circle fa-stack-2x"></i>
-                            <i class="fab fa-facebook-f fa-stack-1x"></i>
-                        </a>
-                    </span>
-                    <span class="fa-stack">
-                        <a href="https://www.linkedin.com/in/ange-carly-bivihou-loemba-28b7b7233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
-                            <i class="fas fa-circle fa-stack-2x"></i>
-                            <i class="fab fa-linkedin fa-stack-1x"></i>
-                        </a>
-                    </span>
-                </span>
-            </div> <!-- end of navbar-collapse -->
-        </div> <!-- end of container -->
-    </nav> <!-- end of navbar -->
-    <!-- end of navigation -->
+                
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/ange-carly-bivihou-loemba-28b7b7233" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/carlybivihou" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/carly.bivihou.9" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-
-    <!-- Header -->
-    <header id="header" class="header">
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="text-container">
-                        <h1 class="h1-large">Je crée des sites web esthétiques et performants, alliant design et efficacité.</h1>
-                        <a class="btn-solid-lg page-scroll" href="#about">En savoir plus</a>
-                        <a class="btn-outline-lg page-scroll" href="#contact"><i class="fas fa-user"></i>Me Contacter</a>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </header> <!-- end of header -->
-    <!-- end of header -->
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="hero-content fade-in-up">
+                        <h1>Salut, je suis <span class="gradient-text">Ange Carly</span></h1>
+                        <p>Développeur Full Stack passionné par la création d'applications web performantes et esthétiques. Spécialisé en Django et Java, je transforme vos idées en solutions digitales innovantes.</p>
+                        <div class="hero-buttons">
+                            <a href="#projects" class="btn-custom btn-primary-custom">
+                                <i class="fas fa-code me-2"></i>Voir mes projets
+                            </a>
+                            <a href="#contact" class="btn-custom btn-outline-custom">
+                                <i class="fas fa-envelope me-2"></i>Me contacter
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="text-center floating">
+                        <div class="hero-image">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-    <!-- About-->
-    <div id="about" class="basic-1 bg-gray">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>À propos de moi</h2>
+                <p>Développeur passionné avec une solide expérience en développement web et application</p>
+            </div>
+            
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="text-container first">
-                        <h2>Salut je suis Ange Carly</h2>
-                        <p>Je suis passionné par l'informatique, présentement je me spécialise dans la création de sites web à la fois esthétiques et performants, alliant design attractif et fonctionnalités optimisées. Je développe des sites web statiques et aussi dynamiques, j'effectue aussi le déploiement</p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-container second">
-                        <div class="time">Septembre 2024 - PRESENT</div>
-                        <h6>Freelance Développeur Web r</h6>
-                        <p>En quete de challenge et de connaissances je me suis lancé dans la freelance</p>
+                <div class="col-lg-4 mb-4">
+                    <div class="about-card fade-in-up">
+                        <h4><i class="fas fa-user me-2"></i>Qui suis-je ?</h4>
+                        <p>Je suis un développeur full stack passionné par l'informatique. Je me spécialise dans la création de sites web et d'applications à la fois esthétiques et performants, alliant design attractif et fonctionnalités optimisées.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-8">
+                    <div class="about-card fade-in-up">
+                        <h4><i class="fas fa-briefcase me-2"></i>Mon parcours professionnel</h4>
                         
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4">
-                    <div class="text-container third">
-                        <div class="time">MAI -JUIN 2021</div>
-                        <h6>Stagiare en Développement Web</h6>
-                        <p>j'ai fait des stages en dévéloppement web chez FOUNDATION ONE</p>
-                        <div class="time">Février -Septembre 2024</div>
-                        <h6>Développeur Full Stack</h6>
-                        <p>j'ai eu l'opportunité d'en plein beaucoup sur le meitier. J'ai eu à travailler sur le développement des sites web et des application DESKTOP</p>
+                        <div class="experience-item">
+                            <div class="experience-date">Janvier 2025 - Présent</div>
+                            <h6>Développeur Backend - Freelance</h6>
+                            <p>Développement du backend d'une application mobile de réseau social (authentification, publication, commentaires, likes). Création d'APIs REST sécurisées avec Spring Boot, utilisation de Firebase et JPA/Hibernate.</p>
+                        </div>
                         
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-                <div class="col-lg-4"></div>
-                    <div class="text-container third">
-                        <div class="time">2021 - 2023</div>
-                        <h6>Parcours LICENCE EN G2NIE INFORMATIQUE</h6>
-                        <p>je suis titulaire d'une licence en génie informatique depuis 2023.</p>
+                        <div class="experience-item">
+                            <div class="experience-date">Décembre 2024 - Aujourd'hui</div>
+                            <h6>Conseiller Client - FOUNDEVER</h6>
+                            <p>Conseiller au service client d'une agence de voyage, manipulation des outils techniques ainsi que des billets d'avion.</p>
+                        </div>
                         
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-1 -->
-    <!-- end of about -->
-
-
-  
-
-
-    <!-- Details -->
-	<div class="split">
-		<div class="area-1">
-		</div><!-- end of area-1 on same line and no space between comments to eliminate margin white space --><div class="area-2 bg-gray">
-            <div class="container">    
-                <div class="row">
-                    <div class="col-lg-12">     
+                        <div class="experience-item">
+                            <div class="experience-date">Février 2023 - Octobre 2024</div>
+                            <h6>Développeur Junior Full Stack - W.01</h6>
+                            <p>Mise en place de plateformes web avec Django pour accompagner le service des cartes NFC commercialisées. Développement d'applications desktop avec JavaFx.</p>
+                        </div>
                         
-                        <!-- Text Container -->
-                        <div class="text-container">
-                            <h2>Pourquoi travailler avec moi?</h2>
-                            <p>Je suis un excellent communicateur et j'aime consacrer le temps nécessaire à la compréhension du projet et aussi l'écoue des autres. J'ai le sens du devoir et la rigueur au travail.</p>
+                        <div class="experience-item">
+                            <div class="experience-date">2021 - 2023</div>
+                            <h6>Formation - Licence en Génie Informatique</h6>
+                            <p>Diplômé en génie informatique avec une spécialisation en développement logiciel et systèmes d'information.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Mes compétences</h2>
+                <p>Technologies et outils que je maîtrise pour créer des solutions innovantes</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item fade-in-up">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h5>Backend</h5>
+                        <p>Django, Spring Boot, APIs REST</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item fade-in-up">
+                        <div class="skill-icon">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <h5>Frontend</h5>
+                        <p>HTML5, CSS3, JavaScript, Bootstrap</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item fade-in-up">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h5>Base de données</h5>
+                        <p>MySQL, Firebase, PostgreSQL</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="skill-item fade-in-up">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <h5>Outils</h5>
+                        <p>Git, GitHub, AWS, Render</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-stack fade-in-up">
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Django</div>
+                <div class="tech-item">Java</div>
+                <div class="tech-item">Spring Boot</div>
+                <div class="tech-item">JavaScript</div>
+                <div class="tech-item">HTML/CSS</div>
+                <div class="tech-item">MySQL</div>
+                <div class="tech-item">Firebase</div>
+                <div class="tech-item">Git</div>
+                <div class="tech-item">AWS</div>
+                <div class="tech-item">WordPress</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Mes projets</h2>
+                <p>Découvrez quelques-unes de mes réalisations les plus représentatives</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Projet 1 - Featured -->
+                <div class="project-card featured fade-in-up">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Application de Réseau Social</h5>
+                        <p class="project-description">Backend complet d'une application mobile de réseau social avec authentification sécurisée, système de publications, commentaires et likes. Architecture REST API moderne avec Spring Boot.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Spring Boot</span>
+                            <span class="project-tag">Firebase</span>
+                            <span class="project-tag">APIs REST</span>
+                            <span class="project-tag">JPA</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://apps.apple.com/sn/app/99-street-2025/id6745186613?l=fr-FR" class="project-link project-link-primary" target="_blank">
+                                <i class="fas fa-eye"></i> Voir le projet
+                            </a>
                             
-                            <h5>DEVELOPMENT SKILLS</h5>
-                            <p>Je connais et travaille quotidiennement avec HTML, CSS, JavaScript, Bootstrap et d'autres cadres modernes comme Django</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Site Clinique VIDA Ophtalmologie</h5>
+                        <p class="project-description">Conception et développement du site web professionnel pour la clinique VIDA Ophtalmologie avec système de rendez-vous en ligne et présentation des services.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML/CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Responsive</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://clinic-vida-1.onrender.com" class="project-link project-link-primary" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Site web
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3 -->
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Plateforme Kolis</h5>
+                        <p class="project-description">Projet personnel innovant d'une plateforme de mise en relation entre voyageurs pour le transport collaboratif de colis légers. Interface moderne et intuitive.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Bootstrap</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://request-yx83.onrender.com" class="project-link project-link-primary" target="_blank">
+                                <i class="fas fa-rocket"></i> Site web
+                            </a>
                             
-                            <div class="icons-container">
-                                <img src="images/details-icon-illustrator.png" alt="alternative">
-                                <img src="images/details-icon-html.png" alt="alternative">
-                                <img src="images/details-icon-css.png" alt="alternative">
-                                <img src="images/details-icon-bootstrap.png" alt="alternative">
-                                <img src="images/details-icon-javascript.png" alt="alternative">
-                                <img src="images/django-logo-positive.png" alt="alternative">
-                                <img src="images/mysql.png" alt="alternative">
-                                <img src="images/python.png" alt="alternative">
-                                <img src="images/java.png" alt="alternative">
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Projet 4 -->
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Site Elo Delivery</h5>
+                        <p class="project-description">Site web commercial pour Elo Delivery, entreprise de livraison avec système de suivi des commandes en temps réel et interface d'administration complète.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">WordPress</span>
+                            <span class="project-tag">WooCommerce</span>
+                            <span class="project-tag">E-commerce</span>
+                            <span class="project-tag">Tracking</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="project2.html" class="project-link project-link-secondary" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Projet 5 - Featured -->
+                <div class="project-card featured fade-in-up">
+                    <div class="project-image">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Bibliothèque Numérique</h5>
+                        <p class="project-description">Projet de fin d'études complet : système de gestion de bibliothèque numérique avec gestion des emprunts, catalogage intelligent et interface utilisateur moderne.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">Bootstrap</span>
+                            <span class="project-tag">Académique</span>
+                        </div>
+                        <div class="project-links">
+                            
+                            <a href="project3.html" class="project-link project-link-secondary" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Projet 6 -->
+                <div class="project-card fade-in-up">
+                    <div class="project-image">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Carnet Médical Numérique</h5>
+                        <p class="project-description">Application web sécurisée de carnet médical numérique permettant aux patients de gérer leurs informations de santé avec système d'authentification robuste.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Django</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Sécurité</span>
+                            <span class="project-tag">Santé</span>
+                        </div>
+                        <div class="project-links">
 
-                            </div> <!-- end of icons-container -->
-                        </div> <!-- end of text-container -->
-                        <!-- end of text container -->
+                            <a href="project.html" class="project-link project-link-secondary" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    </div> <!-- end of col -->
-                </div> <!-- end of row -->
-            </div> <!-- end of container -->
-		</div> <!-- end of area-2 -->
-    </div> <!-- end of split -->
-    <!-- end of details -->
-
-
-    <!-- Projects -->
-    <div id="projects" class="basic-3">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="h2-heading"> Projets Réalisés </h2>
-                    <p class="p-heading">Voici quelques-uns des projets les plus représentatifs sur lesquels j'ai travaillé.</p>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project.html">
-                                <img class="img-fluid" src="images/vida.png" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>Pour:</strong> Clinic VIDA Ophtalmologie, <strong>Project:</strong> Conception la clinic. <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project1.html">
-                                <img class="img-fluid" src="images/kolis.png" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>Projet Personnel:</strong> <strong>Project:</strong> Ceci est un projet personnel d'une plateforme ou ceux qui voyagent legers peuvent vendre leur espace en kilos à ceux qui veulent envoyer des kilos pas trop lourd dans différentes destiantion, le site les mets en relation<a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                    <div class="text-container">
-                        <div class="image-container">
-                            <a href="project2.html">
-                                <img class="img-fluid" src="images/delivery.jpeg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>Pour:</strong> Elo Delivery, <strong>Project:</strong> conception d'un site web pour Elo Delivery une entreprise de livraison <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                    
-                    <div class="text-container"></div>
-                        <div class="image-container">
-                            <a href="project3.html">
-                                <img class="img-fluid" src="images/library.jpeg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>Pour:</strong> Mon projet de fin d'etude, <strong>Project:</strong> conception d'uen bibliothèe numérique pour l'école <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                    <div class="text-container"></div>
-                        <div class="image-container">
-                            <a href="project4.html">
-                                <img class="img-fluid" src="images/carnet.jpeg" alt="alternative">
-                            </a>
-                        </div> <!-- end of image-container -->
-                        <p><strong>Projet Personnel</strong>  <strong>Project:</strong> conception d'une application web carnet médical numérique <a class="blue" href="project.html">details</a></p>
-                    </div> <!-- end of text-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of basic-3 -->
-    <!-- end of projects -->
-
-
-
-
-    <!-- Section Divider -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <hr class="section-divider">
-            </div> <!-- end of col -->
-        </div> <!-- end of row -->
-    </div> <!-- end of container -->
-    <!-- end of section divider -->
-
-
-
-    <!-- Contact -->
-    <div id="contact" class="form-1 bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Me Contacter</h2>
-                    <p class="p-heading">For any type of online project please don't hesitate to get in touch with me. The fastest way is to send me your message using the following email <a class="blue no-line" href="#your-link">carlybivihou@gmail.com</a></p>
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-                <div class="col-lg-12">
-                    
-                    <!-- Contact Form -->
-                    <!-- Contact Form -->
-                    <form id="contactForm" action="https://formspree.io/f/mzzpngnp" method="post">
-                        <div class="form-group">
-                            <input type="text" class="form-control-input" id="cname" name="name" required>
-                            <label class="label-control" for="cname">Nom</label>
+            <div class="section-title fade-in-up">
+                <h2>Travaillons ensemble</h2>
+                <p>Vous avez un projet en tête ? N'hésitez pas à me contacter pour en discuter</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="contact-form fade-in-up">
+                        <div class="row mb-4">
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="contact-info">
+                                    <i class="fas fa-envelope" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                                    <h6>Email</h6>
+                                    <p class="text-muted">carlybivihou8@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="contact-info">
+                                    <i class="fas fa-phone" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                                    <h6>Téléphone</h6>
+                                    <p class="text-muted">+221 78 307 07 87</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="contact-info">
+                                    <i class="fas fa-map-marker-alt" style="font-size: 2rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                                    <h6>Localisation</h6>
+                                    <p class="text-muted">Ouakam, Dakar</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control-input" id="cemail" name="email" required>
-                            <label class="label-control" for="cemail">Email</label>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control-textarea" id="cmessage" name="message" required></textarea>
-                            <label class="label-control" for="cmessage">Message</label>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="form-control-submit-button">Envoyer</button>
-                        </div>
-                    </form>
-                    <!-- end of contact form -->
-
-                    <!-- end of contact form -->
-
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of form-1 -->  
-    <!-- end of contact -->
-
+                        
+                        <form action="https://formspree.io/f/mzzpngnp" method="post">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="name" placeholder="Votre nom" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" placeholder="Votre email" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" class="form-control" name="subject" placeholder="Sujet du message" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Votre message" required></textarea>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn-custom btn-primary-custom">
+                                    <i class="fas fa-paper-plane me-2"></i>Envoyer le message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <div class="footer bg-gray">
+    <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="social-container">
-                        <span class="fa-stack">
-                            <a href="https://www.facebook.com/carly.bivihou.9?mibextid=kFxxJD">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-facebook-f fa-stack-1x"></i>
-                            </a>
-                        </span>
+                    <div class="social-icons mb-4 text-center">
+                        <a href="https://www.linkedin.com/in/ange-carly-bivihou-loemba-28b7b7233" target="_blank">
+                            <i class="fab fa-linkedin" style="font-size: 1.5rem; margin: 0 1rem;"></i>
+                        </a>
+                        <a href="https://github.com/carlybivihou" target="_blank">
+                            <i class="fab fa-github" style="font-size: 1.5rem; margin: 0 1rem;"></i>
+                        </a>
+                        <a href="https://www.facebook.com/carly.bivihou.9" target="_blank">
+                            <i class="fab fa-facebook" style="font-size: 1.5rem; margin: 0 1rem;"></i>
+                        </a>
+                        <a href="https://www.instagram.com/angecarly627" target="_blank">
+                            <i class="fab fa-instagram" style="font-size: 1.5rem; margin: 0 1rem;"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="row text-center">
+                        <div class="col-md-4 mb-3">
+                            <h6 style="color: var(--primary-color);">Navigation</h6>
+                            <div>
+                                <a href="#home" style="color: var(--gray-text); text-decoration: none; display: block; margin: 0.5rem 0;">Accueil</a>
+                                <a href="#about" style="color: var(--gray-text); text-decoration: none; display: block; margin: 0.5rem 0;">À propos</a>
+                                <a href="#projects" style="color: var(--gray-text); text-decoration: none; display: block; margin: 0.5rem 0;">Projets</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <h6 style="color: var(--primary-color);">Services</h6>
+                            <div>
+                                <p style="color: var(--gray-text); margin: 0.5rem 0;">Développement Web</p>
+                                <p style="color: var(--gray-text); margin: 0.5rem 0;">Applications Mobile</p>
+                                <p style="color: var(--gray-text); margin: 0.5rem 0;">APIs REST</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <h6 style="color: var(--primary-color);">Contact</h6>
+                            <div>
+                                <p style="color: var(--gray-text); margin: 0.5rem 0;">carlybivihou8@gmail.com</p>
+                                <p style="color: var(--gray-text); margin: 0.5rem 0;">+221 78 307 07 87</p>
+                                <p style="color: var(--gray-text); margin: 0.5rem 0;">Ouakam, Dakar</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr style="border-color: rgba(59, 130, 246, 0.2); margin: 2rem 0;">
+                    
+                    <div class="text-center">
+                        <p style="color: var(--gray-text); margin: 0;">
+                            © 2025 Ange Carly BIVIHOU LOEMBA. Tous droits réservés.
+                        </p>
+                        <p style="color: var(--gray-text); margin: 0.5rem 0 0 0; font-size: 0.9rem;">
+                            Conçu avec <i class="fas fa-heart" style="color: var(--accent-color);"></i> à Dakar
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-                        <span class="fa-stack">
-                            <a href="https://www.linkedin.com/in/ange-carly-bivihou-loemba-28b7b7233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-linkedin fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        <span class="fa-stack">
-                            <a href="https://www.instagram.com/angecarly627?igsh=aGdobjdldHkxZWli&utm_source=qr">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-instagram fa-stack-1x"></i>
-                            </a>
-                        </span>
-                        
-                    </div> <!-- end of social-container -->
-                </div> <!-- end of col -->
-            </div> <!-- end of row -->
-        </div> <!-- end of container -->
-    </div> <!-- end of footer -->  
-    <!-- end of footer -->
+    <!-- Back to Top Button -->
+    <button id="backToTop" style="
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: none;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    " onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
-
-    <!-- Copyright -->
-    <div class="copyright bg-gray">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="p-small">Copyright © <a class="no-line" href="https://www.linkedin.com/in/ange-carly-bivihou-loemba-28b7b7233?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">Ange-Carly</a></p>
-                </div> <!-- end of col -->
-            </div> <!-- enf of row -->
-        </div> <!-- end of container -->
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <p class="p-small">Tous droits réservés à  <a class="no-line" href="">@carlybivihou</a></p>
-                </div> <!-- end of col -->
-            </div> <!-- enf of row -->
-        </div> <!-- end of container -->
-        
-    </div> <!-- end of copyright --> 
-    <!-- end of copyright -->
-    
-    	
     <!-- Scripts -->
-    <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-    <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
-    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="js/scripts.js"></script> <!-- Custom scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+                navbar.style.backdropFilter = 'blur(20px)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+            
+            // Show/hide back to top button
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Back to top button hover effect
+        const backToTopBtn = document.getElementById('backToTop');
+        backToTopBtn.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.boxShadow = '0 6px 20px rgba(59, 130, 246, 0.4)';
+        });
+        
+        backToTopBtn.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = '0 4px 15px rgba(59, 130, 246, 0.3)';
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Typing effect for hero title
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const originalText = heroTitle.innerHTML;
+                setTimeout(() => {
+                    typeWriter(heroTitle, originalText, 50);
+                }, 500);
+            }
+        });
+
+        // Add active class to navigation links
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission handling
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Envoi en cours...';
+                submitBtn.disabled = true;
+                
+                // Reset after 3 seconds (adjust based on your form processing time)
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            });
+        }
+
+        // Enhanced hover effects for project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+                this.style.boxShadow = '0 25px 50px rgba(59, 130, 246, 0.25)';
+                
+                // Add glow effect to featured projects
+                if (this.classList.contains('featured')) {
+                    this.style.boxShadow = '0 25px 50px rgba(59, 130, 246, 0.4)';
+                }
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '0 20px 40px rgba(59, 130, 246, 0.2)';
+                
+                if (this.classList.contains('featured')) {
+                    this.style.boxShadow = '0 20px 40px rgba(59, 130, 246, 0.3)';
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            
+            if (hero) {
+                hero.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Add cursor trail effect
+        document.addEventListener('mousemove', function(e) {
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor-trail';
+            cursor.style.cssText = `
+                position: fixed;
+                width: 4px;
+                height: 4px;
+                background: var(--primary-color);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                left: ${e.clientX - 2}px;
+                top: ${e.clientY - 2}px;
+                animation: cursorTrail 0.8s ease-out forwards;
+            `;
+            
+            document.body.appendChild(cursor);
+            
+            setTimeout(() => {
+                cursor.remove();
+            }, 800);
+        });
+
+        // Add CSS for cursor trail animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes cursorTrail {
+                to {
+                    opacity: 0;
+                    transform: scale(2);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Project card click handlers
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Only trigger if not clicking on a link
+                if (!e.target.closest('.project-link')) {
+                    const title = this.querySelector('.project-title').textContent;
+                    console.log(`Clicked on project: ${title}`);
+                    // You can add modal or navigation logic here
+                }
+            });
+        });
+
+        // Smooth transitions for project tags
+        document.querySelectorAll('.project-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.background = 'rgba(59, 130, 246, 0.25)';
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.background = 'rgba(59, 130, 246, 0.15)';
+            });
+        });
+    </script>
 </body>
 </html>
